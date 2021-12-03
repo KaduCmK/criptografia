@@ -34,3 +34,4 @@ def decodificador(codigo):
     return ''.join(output)
 
 print(decodificador(codigo))
+input('pressione qualquer tecla para sair')

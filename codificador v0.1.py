@@ -39,3 +39,4 @@ def codificador(frase):
     return '.'.join(output)
 
 print(codificador(frase))
+input('pressione qualquer tecla para sair')
