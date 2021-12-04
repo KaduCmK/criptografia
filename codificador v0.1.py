@@ -11,6 +11,8 @@
 # Letras com acento (á, ã, ç) NÃO SÃO ACEITAS!
 
 import string
+import random
+import numpy as np
 
 frase = input('Escreva a frase a ser codificada: \n')
 
@@ -36,7 +38,23 @@ def codificador(frase):
                 if frase[i] == especiais[k]:
                     output.append(especiais[k])
 
-    return '.'.join(output)
+    return output
 
-print(codificador(frase))
+
+def shuffle(frase):
+    order = list(range(len(frase))); random.shuffle(order)
+    return list(np.array(frase)[order]), str(order)
+
+
+saida, order = shuffle(codificador(frase))
+intstring = [str(int) for int in order]
+chave = ''.join(intstring)
+chavefim = ''.join(chave)
+
+print('Código:')
+print('.'.join(saida))
+print('======================')
+print('Chave:')
+print(chavefim)
+
 input('pressione qualquer tecla para sair')

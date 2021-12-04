@@ -3,9 +3,15 @@
 # info sobre a criptografia no codificador.py
 
 import string
+import random
+import numpy as np
 
 entrada = str(input('Entre com o código: \n'))
 codigo = entrada.split('.')
+chave = []
+for i in range(len(codigo)):
+    n = int(input('Insira a chave, *um numero de cada vez*: '))
+    chave.append(n)
 
 def decodificador(codigo):
     output = []
@@ -33,5 +39,14 @@ def decodificador(codigo):
 
     return ''.join(output)
 
-print(decodificador(codigo))
+
+def unshuffle(l, order):
+    l_out = [0] * len(l)
+    for i, j in enumerate(order):
+        l_out[j] = l[i]
+    return l_out
+
+print('=============================')
+print('Sua mensagem decodificada:')
+print(decodificador(unshuffle(codigo, chave)))
 input('pressione qualquer tecla para sair')
