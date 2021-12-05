@@ -8,10 +8,15 @@ import numpy as np
 
 entrada = str(input('Entre com o código: \n'))
 codigo = entrada.split('.')
+ent_chave = input('Chave: ')
+c= ent_chave.split(', ')
 chave = []
-for i in range(len(codigo)):
-    n = int(input('Insira a chave, *um numero de cada vez*: '))
-    chave.append(n)
+for i in range(len(c)):
+    chave.append(int(c[i]))
+
+print(chave)
+print(len(chave))
+input()
 
 def decodificador(codigo):
     output = []
